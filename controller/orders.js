@@ -1,13 +1,13 @@
 const orderModelCtrl = require('../model/orderModel');
 const orderDoneModelCtrl = require('../model/orderDoneModel');
+const counter = require('./getNextSequence');
 
-
-function saveOrder(req, res){
+async function saveOrder(req, res){
     let orderData = orderModelCtrl.orderModel({
-        orderId : req.body.orderId,
+        orderId : await counter.getNextSequence("orderId"),
         items : req.body.items
     });
-    console.log(orderData);
+   
     orderData.save((err, result)=>{
         if(err){
             res.send("While saving orders, Something went wrong!");
