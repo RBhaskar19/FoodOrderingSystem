@@ -4,10 +4,10 @@ const mongoose = require('./connection').mongoose;
 //console.log(db+"   data base  connection   "+mongoose);
 
 const orderSchema = mongoose.Schema({
-    uid: {
-        type : Number,
-        required: true
-    },
+    // uid: {
+    //     type : Number,
+    //     required: true
+    // },
     orderId: {
         type: Number,
         required: true
@@ -16,7 +16,7 @@ const orderSchema = mongoose.Schema({
         type: [{
             item: { type: String, required: true },
             quantity: { type: Number, required: true },
-            price : {type: Number, required: true}
+            //price : {type: Number, required: true}
         }]
     }
 });
